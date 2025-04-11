@@ -588,321 +588,321 @@ const MusicNFTUpload = ({ onSubmit, walletConnected }) => {
           </div>
         );
 
-      case 2:
-        return (
-          <div className={styles.step}>
-            <h3 className={styles.stepTitle}>NFT Settings</h3>
+      // case 2:
+      //   return (
+      //     <div className={styles.step}>
+      //       <h3 className={styles.stepTitle}>NFT Settings</h3>
 
-            <div className={styles.formGroup}>
-              <label className={styles.label}>Edition Type</label>
-              <div className={styles.editionOptions}>
-                <label
-                  className={`${styles.editionOption} ${
-                    formData.edition === "single" ? styles.selected : ""
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="edition"
-                    value="single"
-                    checked={formData.edition === "single"}
-                    onChange={handleChange}
-                    className={styles.hiddenInput}
-                  />
-                  <div className={styles.editionIcon}>1/1</div>
-                  <div className={styles.editionLabel}>
-                    <span className={styles.editionName}>Single Edition</span>
-                    <span className={styles.editionDesc}>
-                      One unique collectible
-                    </span>
-                  </div>
-                </label>
+      //       <div className={styles.formGroup}>
+      //         <label className={styles.label}>Edition Type</label>
+      //         <div className={styles.editionOptions}>
+      //           <label
+      //             className={`${styles.editionOption} ${
+      //               formData.edition === "single" ? styles.selected : ""
+      //             }`}
+      //           >
+      //             <input
+      //               type="radio"
+      //               name="edition"
+      //               value="single"
+      //               checked={formData.edition === "single"}
+      //               onChange={handleChange}
+      //               className={styles.hiddenInput}
+      //             />
+      //             <div className={styles.editionIcon}>1/1</div>
+      //             <div className={styles.editionLabel}>
+      //               <span className={styles.editionName}>Single Edition</span>
+      //               <span className={styles.editionDesc}>
+      //                 One unique collectible
+      //               </span>
+      //             </div>
+      //           </label>
 
-                <label
-                  className={`${styles.editionOption} ${
-                    formData.edition === "limited" ? styles.selected : ""
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="edition"
-                    value="limited"
-                    checked={formData.edition === "limited"}
-                    onChange={handleChange}
-                    className={styles.hiddenInput}
-                  />
-                  <div className={styles.editionIcon}>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        x="3"
-                        y="3"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <rect
-                        x="14"
-                        y="3"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <rect
-                        x="3"
-                        y="14"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <rect
-                        x="14"
-                        y="14"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </div>
-                  <div className={styles.editionLabel}>
-                    <span className={styles.editionName}>Limited Edition</span>
-                    <span className={styles.editionDesc}>
-                      Fixed number of identical NFTs
-                    </span>
-                  </div>
-                </label>
+      //           <label
+      //             className={`${styles.editionOption} ${
+      //               formData.edition === "limited" ? styles.selected : ""
+      //             }`}
+      //           >
+      //             <input
+      //               type="radio"
+      //               name="edition"
+      //               value="limited"
+      //               checked={formData.edition === "limited"}
+      //               onChange={handleChange}
+      //               className={styles.hiddenInput}
+      //             />
+      //             <div className={styles.editionIcon}>
+      //               <svg
+      //                 width="24"
+      //                 height="24"
+      //                 viewBox="0 0 24 24"
+      //                 fill="none"
+      //                 xmlns="http://www.w3.org/2000/svg"
+      //               >
+      //                 <rect
+      //                   x="3"
+      //                   y="3"
+      //                   width="7"
+      //                   height="7"
+      //                   rx="1"
+      //                   stroke="currentColor"
+      //                   strokeWidth="2"
+      //                 />
+      //                 <rect
+      //                   x="14"
+      //                   y="3"
+      //                   width="7"
+      //                   height="7"
+      //                   rx="1"
+      //                   stroke="currentColor"
+      //                   strokeWidth="2"
+      //                 />
+      //                 <rect
+      //                   x="3"
+      //                   y="14"
+      //                   width="7"
+      //                   height="7"
+      //                   rx="1"
+      //                   stroke="currentColor"
+      //                   strokeWidth="2"
+      //                 />
+      //                 <rect
+      //                   x="14"
+      //                   y="14"
+      //                   width="7"
+      //                   height="7"
+      //                   rx="1"
+      //                   stroke="currentColor"
+      //                   strokeWidth="2"
+      //                 />
+      //               </svg>
+      //             </div>
+      //             <div className={styles.editionLabel}>
+      //               <span className={styles.editionName}>Limited Edition</span>
+      //               <span className={styles.editionDesc}>
+      //                 Fixed number of identical NFTs
+      //               </span>
+      //             </div>
+      //           </label>
 
-                <label
-                  className={`${styles.editionOption} ${
-                    formData.edition === "open" ? styles.selected : ""
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="edition"
-                    value="open"
-                    checked={formData.edition === "open"}
-                    onChange={handleChange}
-                    className={styles.hiddenInput}
-                  />
-                  <div className={styles.editionIcon}>∞</div>
-                  <div className={styles.editionLabel}>
-                    <span className={styles.editionName}>Open Edition</span>
-                    <span className={styles.editionDesc}>
-                      Unlimited for a time period
-                    </span>
-                  </div>
-                </label>
-              </div>
-            </div>
+      //           <label
+      //             className={`${styles.editionOption} ${
+      //               formData.edition === "open" ? styles.selected : ""
+      //             }`}
+      //           >
+      //             <input
+      //               type="radio"
+      //               name="edition"
+      //               value="open"
+      //               checked={formData.edition === "open"}
+      //               onChange={handleChange}
+      //               className={styles.hiddenInput}
+      //             />
+      //             <div className={styles.editionIcon}>∞</div>
+      //             <div className={styles.editionLabel}>
+      //               <span className={styles.editionName}>Open Edition</span>
+      //               <span className={styles.editionDesc}>
+      //                 Unlimited for a time period
+      //               </span>
+      //             </div>
+      //           </label>
+      //         </div>
+      //       </div>
 
-            {formData.edition === "limited" && (
-              <div className={styles.formGroup}>
-                <label htmlFor="editionCount" className={styles.label}>
-                  Number of Editions
-                </label>
-                <input
-                  type="number"
-                  id="editionCount"
-                  name="editionCount"
-                  min="2"
-                  max="10000"
-                  value={formData.editionCount}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
-              </div>
-            )}
+      //       {formData.edition === "limited" && (
+      //         <div className={styles.formGroup}>
+      //           <label htmlFor="editionCount" className={styles.label}>
+      //             Number of Editions
+      //           </label>
+      //           <input
+      //             type="number"
+      //             id="editionCount"
+      //             name="editionCount"
+      //             min="2"
+      //             max="10000"
+      //             value={formData.editionCount}
+      //             onChange={handleChange}
+      //             className={styles.input}
+      //           />
+      //         </div>
+      //       )}
 
-            <div className={styles.formRow}>
-              <div className={styles.formGroup}>
-                <label htmlFor="price" className={styles.label}>
-                  Price
-                </label>
-                <div className={styles.priceInput}>
-                  <input
-                    type="number"
-                    id="price"
-                    name="price"
-                    min="0"
-                    step="0.01"
-                    value={formData.price}
-                    onChange={handleChange}
-                    className={styles.input}
-                  />
-                  <select
-                    name="blockchain"
-                    value={formData.blockchain}
-                    onChange={handleChange}
-                    className={styles.currencySelect}
-                  >
-                    <option value="sui">SUI</option>
-                    <option value="polygon">MATIC</option>
-                    <option value="solana">SOL</option>
-                    <option value="arbitrum">ARB</option>
-                    <option value="optimism">OP</option>
-                  </select>
-                </div>
-              </div>
+      //       <div className={styles.formRow}>
+      //         <div className={styles.formGroup}>
+      //           <label htmlFor="price" className={styles.label}>
+      //             Price
+      //           </label>
+      //           <div className={styles.priceInput}>
+      //             <input
+      //               type="number"
+      //               id="price"
+      //               name="price"
+      //               min="0"
+      //               step="0.01"
+      //               value={formData.price}
+      //               onChange={handleChange}
+      //               className={styles.input}
+      //             />
+      //             <select
+      //               name="blockchain"
+      //               value={formData.blockchain}
+      //               onChange={handleChange}
+      //               className={styles.currencySelect}
+      //             >
+      //               <option value="sui">SUI</option>
+      //               <option value="polygon">MATIC</option>
+      //               <option value="solana">SOL</option>
+      //               <option value="arbitrum">ARB</option>
+      //               <option value="optimism">OP</option>
+      //             </select>
+      //           </div>
+      //         </div>
 
-              <div className={styles.formGroup}>
-                <label htmlFor="blockchain" className={styles.label}>
-                  Blockchain
-                </label>
-                <select
-                  id="blockchain"
-                  name="blockchain"
-                  value={formData.blockchain}
-                  onChange={handleChange}
-                  className={styles.select}
-                >
-                  <option value="ethereum">Ethereum</option>
-                  <option value="polygon">Polygon</option>
-                  <option value="solana">Solana</option>
-                  <option value="arbitrum">Arbitrum</option>
-                  <option value="optimism">Optimism</option>
-                </select>
-              </div>
-            </div>
+      //         <div className={styles.formGroup}>
+      //           <label htmlFor="blockchain" className={styles.label}>
+      //             Blockchain
+      //           </label>
+      //           <select
+      //             id="blockchain"
+      //             name="blockchain"
+      //             value={formData.blockchain}
+      //             onChange={handleChange}
+      //             className={styles.select}
+      //           >
+      //             <option value="ethereum">Ethereum</option>
+      //             <option value="polygon">Polygon</option>
+      //             <option value="solana">Solana</option>
+      //             <option value="arbitrum">Arbitrum</option>
+      //             <option value="optimism">Optimism</option>
+      //           </select>
+      //         </div>
+      //       </div>
 
-            {/* NFT Preview Card */}
-            <div className={styles.previewSection}>
-              <h4 className={styles.previewTitle}>Preview NFT</h4>
+      //       {/* NFT Preview Card */}
+      //       <div className={styles.previewSection}>
+      //         <h4 className={styles.previewTitle}>Preview NFT</h4>
 
-              <div className={styles.nftCard}>
-                <div className={styles.nftImage}>
-                  {formData.coverImage ? (
-                    <img
-                      src={URL.createObjectURL(formData.coverImage)}
-                      alt="NFT Preview"
-                      className={styles.nftCover}
-                    />
-                  ) : (
-                    <div className={styles.nftImagePlaceholder}>
-                      <svg
-                        width="48"
-                        height="48"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M2.67 18.95L7 15.9C7.6 15.5 8.48 15.56 9 16.06L9.35 16.44C9.91 17.05 10.85 17.05 11.41 16.44L15.1 12.44C15.66 11.84 16.6 11.84 17.16 12.44L22 17.5"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  )}
+      //         <div className={styles.nftCard}>
+      //           <div className={styles.nftImage}>
+      //             {formData.coverImage ? (
+      //               <img
+      //                 src={URL.createObjectURL(formData.coverImage)}
+      //                 alt="NFT Preview"
+      //                 className={styles.nftCover}
+      //               />
+      //             ) : (
+      //               <div className={styles.nftImagePlaceholder}>
+      //                 <svg
+      //                   width="48"
+      //                   height="48"
+      //                   viewBox="0 0 24 24"
+      //                   fill="none"
+      //                   xmlns="http://www.w3.org/2000/svg"
+      //                 >
+      //                   <path
+      //                     d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+      //                     stroke="currentColor"
+      //                     strokeWidth="1.5"
+      //                     strokeLinecap="round"
+      //                     strokeLinejoin="round"
+      //                   />
+      //                   <path
+      //                     d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z"
+      //                     stroke="currentColor"
+      //                     strokeWidth="1.5"
+      //                     strokeLinecap="round"
+      //                     strokeLinejoin="round"
+      //                   />
+      //                   <path
+      //                     d="M2.67 18.95L7 15.9C7.6 15.5 8.48 15.56 9 16.06L9.35 16.44C9.91 17.05 10.85 17.05 11.41 16.44L15.1 12.44C15.66 11.84 16.6 11.84 17.16 12.44L22 17.5"
+      //                     stroke="currentColor"
+      //                     strokeWidth="1.5"
+      //                     strokeLinecap="round"
+      //                     strokeLinejoin="round"
+      //                   />
+      //                 </svg>
+      //               </div>
+      //             )}
 
-                  {formData.audioFile && (
-                    <div className={styles.audioControls}>
-                      <button
-                        type="button"
-                        onClick={togglePreview}
-                        className={styles.playButton}
-                      >
-                        {previewActive ? (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M8 5V19M16 5V19"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        ) : (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M5 4.99999L19 12L5 19V4.99999Z"
-                              fill="currentColor"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        )}
-                      </button>
-                    </div>
-                  )}
-                </div>
+      //             {formData.audioFile && (
+      //               <div className={styles.audioControls}>
+      //                 <button
+      //                   type="button"
+      //                   onClick={togglePreview}
+      //                   className={styles.playButton}
+      //                 >
+      //                   {previewActive ? (
+      //                     <svg
+      //                       width="24"
+      //                       height="24"
+      //                       viewBox="0 0 24 24"
+      //                       fill="none"
+      //                       xmlns="http://www.w3.org/2000/svg"
+      //                     >
+      //                       <path
+      //                         d="M8 5V19M16 5V19"
+      //                         stroke="currentColor"
+      //                         strokeWidth="2"
+      //                         strokeLinecap="round"
+      //                         strokeLinejoin="round"
+      //                       />
+      //                     </svg>
+      //                   ) : (
+      //                     <svg
+      //                       width="24"
+      //                       height="24"
+      //                       viewBox="0 0 24 24"
+      //                       fill="none"
+      //                       xmlns="http://www.w3.org/2000/svg"
+      //                     >
+      //                       <path
+      //                         d="M5 4.99999L19 12L5 19V4.99999Z"
+      //                         fill="currentColor"
+      //                         stroke="currentColor"
+      //                         strokeWidth="2"
+      //                         strokeLinecap="round"
+      //                         strokeLinejoin="round"
+      //                       />
+      //                     </svg>
+      //                   )}
+      //                 </button>
+      //               </div>
+      //             )}
+      //           </div>
 
-                <div className={styles.nftInfo}>
-                  <div className={styles.nftTitle}>
-                    {formData.title || "Untitled Track"}
-                  </div>
-                  <div className={styles.nftArtist}>
-                    {formData.contributors[0]?.name || "Artist Name"}
-                  </div>
+      //           <div className={styles.nftInfo}>
+      //             <div className={styles.nftTitle}>
+      //               {formData.title || "Untitled Track"}
+      //             </div>
+      //             <div className={styles.nftArtist}>
+      //               {formData.contributors[0]?.name || "Artist Name"}
+      //             </div>
 
-                  <div className={styles.nftDetails}>
-                    <div className={styles.nftEdition}>
-                      {formData.edition === "single" && "1 of 1"}
-                      {formData.edition === "limited" &&
-                        `1 of ${formData.editionCount}`}
-                      {formData.edition === "open" && "Open Edition"}
-                    </div>
-                    <div className={styles.nftPrice}>
-                      {formData.price}{" "}
-                      {formData.blockchain === "ethereum"
-                        ? "ETH"
-                        : formData.blockchain === "polygon"
-                        ? "MATIC"
-                        : formData.blockchain === "solana"
-                        ? "SOL"
-                        : formData.blockchain === "arbitrum"
-                        ? "ARB"
-                        : "OP"}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
+      //             <div className={styles.nftDetails}>
+      //               <div className={styles.nftEdition}>
+      //                 {formData.edition === "single" && "1 of 1"}
+      //                 {formData.edition === "limited" &&
+      //                   `1 of ${formData.editionCount}`}
+      //                 {formData.edition === "open" && "Open Edition"}
+      //               </div>
+      //               <div className={styles.nftPrice}>
+      //                 {formData.price}{" "}
+      //                 {formData.blockchain === "ethereum"
+      //                   ? "ETH"
+      //                   : formData.blockchain === "polygon"
+      //                   ? "MATIC"
+      //                   : formData.blockchain === "solana"
+      //                   ? "SOL"
+      //                   : formData.blockchain === "arbitrum"
+      //                   ? "ARB"
+      //                   : "OP"}
+      //               </div>
+      //             </div>
+      //           </div>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   );
 
       default:
         return null;

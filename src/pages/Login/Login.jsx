@@ -1,16 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import styles from "./Login.module.css";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ConnectButton } from "@mysten/dapp-kit";
+import { useCurrentWallet } from "@mysten/dapp-kit";
+
 const Login = () => {
   const [isZkLoading, setIsZkLoading] = useState(false);
   const [showZkForm, setShowZkForm] = useState(false);
-  
+  const { isConnected } = useCurrentWallet();
+
   // Form states
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(()=> {
+    if (isConnected) {
+      navigate("/homepage");
+      }
+  }, [isConnected, navigate]);
+
 
   const handleZkLogin = () => {
     setIsZkLoading(true);
@@ -20,23 +32,23 @@ const Login = () => {
       setShowZkForm(true); // Show the form after loading
     }, 2000);
   };
-  
+
   const handleFormClose = () => {
     setShowZkForm(false);
     // Reset form fields when closing
-    setEmail('');
-    setPassword('');
+    setEmail("");
+    setPassword("");
     setRememberMe(false);
   };
-  
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setIsFormSubmitting(true);
-    
+
     // Simulate authentication process
     setTimeout(() => {
       setIsFormSubmitting(false);
-      console.log('Login with:', { email, password, rememberMe });
+      console.log("Login with:", { email, password, rememberMe });
       // Here you would handle redirection to homepage
       setShowZkForm(false);
     }, 1500);
@@ -47,38 +59,38 @@ const Login = () => {
     const createNodes = () => {
       const container = document.querySelector(`.${styles.loginContainer}`);
       if (!container) return;
-      
+
       // Clear existing nodes first
       const existingNodes = document.querySelectorAll(`.${styles.node}`);
-      existingNodes.forEach(node => node.remove());
-      
+      existingNodes.forEach((node) => node.remove());
+
       // Create new nodes
       for (let i = 0; i < 12; i++) {
-        const node = document.createElement('div');
+        const node = document.createElement("div");
         node.className = styles.node;
-        
+
         // Random positioning
         node.style.left = `${Math.random() * 100}%`;
         node.style.top = `${Math.random() * 100}%`;
         node.style.animationDuration = `${Math.random() * 15 + 20}s`;
         node.style.animationDelay = `${Math.random() * 5}s`;
-        
+
         container.appendChild(node);
       }
     };
-    
+
     createNodes();
-    
+
     // Recreate nodes occasionally for fresh animations
     const interval = setInterval(createNodes, 30000);
-    
+
     return () => clearInterval(interval);
   }, []);
-  
+
   return (
     <div className={styles.loginContainer}>
       <div className={styles.glowCircle}></div>
-      
+
       <div className={styles.card}>
         <div className={styles.logoContainer}>
           <div className={styles.logo}>
@@ -87,13 +99,15 @@ const Login = () => {
           <div className={styles.logoRing}></div>
           <div className={styles.logoRing2}></div>
         </div>
-        
-        <h1 className={styles.title}>Welcome to <span className={styles.gradient}>SuiTunes</span></h1>
+
+        <h1 className={styles.title}>
+          Welcome to <span className={styles.gradient}>SuiTunes</span>
+        </h1>
         <p className={styles.subtitle}>Experience Music like never before</p>
-        
+
         <div className={styles.buttons}>
-          <button 
-            className={`${styles.zkLogin} ${isZkLoading ? styles.loading : ''}`}
+          <button
+            className={`${styles.zkLogin} ${isZkLoading ? styles.loading : ""}`}
             onClick={handleZkLogin}
             disabled={isZkLoading}
           >
@@ -106,17 +120,16 @@ const Login = () => {
               </>
             )}
           </button>
-          
+
           <div className={styles.separator}>
             <span>or</span>
           </div>
-          
+
           <div className={styles.walletConnectWrapper}>
-            {/* Replace custom wallet connect button with Sui's ConnectWallet component */}
-            <ConnectButton/>
+            <ConnectButton />
           </div>
         </div>
-        
+
         <div className={styles.features}>
           <div className={styles.feature}>
             <span className={styles.featureIcon}>🎵</span>
@@ -132,25 +145,29 @@ const Login = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Sign In Form Modal */}
       {showZkForm && (
         <div className={styles.formOverlay}>
           <div className={styles.formContainer}>
-            <button className={styles.closeButton} onClick={handleFormClose}>×</button>
-            
+            <button className={styles.closeButton} onClick={handleFormClose}>
+              ×
+            </button>
+
             <div className={styles.formHeader}>
               <div className={styles.logoMini}>
                 <span>ST</span>
               </div>
-              <h2>Sign in to <span className={styles.gradientText}>SuiTunes</span></h2>
+              <h2>
+                Sign in to <span className={styles.gradientText}>SuiTunes</span>
+              </h2>
             </div>
-            
+
             <p className={styles.zkMessage}>
               <span className={styles.zkIcon}>🔐</span>
               Secure authentication with zero-knowledge proof
             </p>
-            
+
             <form onSubmit={handleFormSubmit}>
               <div className={styles.inputGroup}>
                 <label htmlFor="email">Email</label>
@@ -163,7 +180,7 @@ const Login = () => {
                   required
                 />
               </div>
-              
+
               <div className={styles.inputGroup}>
                 <label htmlFor="password">Password</label>
                 <input
@@ -175,7 +192,7 @@ const Login = () => {
                   required
                 />
               </div>
-              
+
               <div className={styles.formOptions}>
                 <label className={styles.checkboxLabel}>
                   <input
@@ -186,29 +203,39 @@ const Login = () => {
                   <span className={styles.checkmark}></span>
                   Remember me
                 </label>
-                <a href="#" className={styles.forgotLink}>Forgot password?</a>
+                <a href="#" className={styles.forgotLink}>
+                  Forgot password?
+                </a>
               </div>
+
               <Link to="/homepage">
-              
-              <button 
-                type="submit" 
-                className={`${styles.submitButton} ${isFormSubmitting ? styles.loading : ''}`}
-                disabled={isFormSubmitting}
-              >
-                {isFormSubmitting ? (
-                  <span className={styles.buttonLoader}></span>
-                ) : "Sign In"}
-              </button>
+                <button
+                  type="submit"
+                  className={`${styles.submitButton} ${
+                    isFormSubmitting ? styles.loading : ""
+                  }`}
+                  disabled={isFormSubmitting}
+                >
+                  {isFormSubmitting ? (
+                    <span className={styles.buttonLoader}></span>
+                  ) : (
+                    "Sign In"
+                  )}
+                </button>
               </Link>
             </form>
-            
+
             <div className={styles.privacyNote}>
-              By signing in, you agree to SuiTunes's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+              By signing in, you agree to SuiTunes's{" "}
+              <a href="#">Terms of Service</a> and{" "}
+              <a href="#">Privacy Policy</a>
             </div>
-            
+
             <div className={styles.web3Note}>
               <p>First time using Web3?</p>
-              <a href="#" className={styles.learnMoreLink}>Learn more about zkLogin</a>
+              <a href="#" className={styles.learnMoreLink}>
+                Learn more about zkLogin
+              </a>
             </div>
           </div>
         </div>
